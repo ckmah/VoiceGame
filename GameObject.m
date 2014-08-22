@@ -1,3 +1,6 @@
+%
+%  Basic object in VoiceGame with position, radius and visibility properties.
+%
 classdef GameObject
   properties (SetAccess = public, GetAccess = public)
     x % x position
@@ -8,7 +11,7 @@ classdef GameObject
   methods
     % -------------------- CONSTRUCTOR --------------------
     function obj = GameObject(x, y, r, v)
-      if nargin > 0
+      if nargin > 0 % support no input arg
         obj.x = x;
         obj.y = y;
         obj.radius = v;

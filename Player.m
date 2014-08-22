@@ -1,3 +1,7 @@
+%
+% Player extends GameObject. Controlled by user, keeps track of a score.
+% TODO Keep track of accuracy -> distance from target center.
+%
 classdef Player < GameObject
   properties (SetAccess = public, GetAccess = public)
     points % equivalent to number of hit targets
@@ -7,7 +11,7 @@ classdef Player < GameObject
     % -------------------- CONSTRUCTOR --------------------
     function obj = Player(x,y,r,v)
       obj@GameObject(x,y,r,v);
-      if nargin > 0
+      if nargin > 0 % support no input arg
         obj.points = 0;
         obj.missed = 0;
       end
@@ -22,8 +26,6 @@ classdef Player < GameObject
     function value = get.missed(obj)
       value = obj.missed;
     end
-    % function (obj)
-    %   disp@MySuperClass(obj)
 
     % -------------------- SET METHODS --------------------
     % set obj points position

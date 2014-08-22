@@ -1,24 +1,20 @@
 function udpdemo =  UDPdemo()
-  udpdemo = 0
+  %% Define computer-specific variables
+  ipA = '137.110.63.159';   portA = 49170;   % Modify these values to be those of your first computer.
+  ipB = '128.54.162.200';  portB = 8051;  % Modify these values to be those of your second computer.
 
-  hudpr = dsp.UDPReceiver;
-  hudps = dsp.UDPSender;
+  %% Create UDP Object
+  udpA = udp(ipB,portB,'LocalPort',portA);
 
-  bytesSent = 0;
-  bytesReceived = 0;
-  dataLength = 128;
+  %% Connect to UDP Object
+  fopen(udpA)
 
-  for k = 1:20
-     dataSent = uint8(255*rand(1,dataLength));
-     bytesSent = bytesSent + dataLength;
-     step(hudps, dataSent);
-     dataReceived = step(hudpr);
-     bytesReceived = bytesReceived + length(dataReceived);
-  end
+  % while true
+    fprintf(udpA,'OMFG THIS TOOK FIVEVER.');
+  % end
 
-  release(hudps);
-  release(hudpr);
-
-  fprintf('Bytes sent:     %d\n', bytesSent);
-  fprintf('Bytes received: %d\n', bytesReceived);
+  %% Clean Up Machine A
+  fclose(udpA)
+  delete(udpA)
+  clear ipA portA ipB portB udpA
 end
