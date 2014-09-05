@@ -14,8 +14,8 @@ classdef GameObject
       if nargin > 0 % support no input arg
         obj.x = x;
         obj.y = y;
-        obj.radius = v;
-        obj.visible = true;
+        obj.radius = r;
+        obj.visible = v;
       end
     end
     % -------------------- ACCESS METHODS --------------------

@@ -1,7 +1,7 @@
 function udpdemo =  UDPdemo()
   %% Define computer-specific variables
-  ipA = '137.110.63.159';   portA = 49170;   % Modify these values to be those of your first computer.
-  ipB = '128.54.162.200';  portB = 8051;  % Modify these values to be those of your second computer.
+  ipA = '137.110.63.45';   portA = 49170;   % Modify these values to be those of your first computer.
+  ipB = '169.228.172.179';  portB = 9051;  % Modify these values to be those of your second computer.
 
   %% Create UDP Object
   udpA = udp(ipB,portB,'LocalPort',portA);

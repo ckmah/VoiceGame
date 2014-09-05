@@ -10,17 +10,20 @@ classdef Player < GameObject
   methods
     % -------------------- CONSTRUCTOR --------------------
     function obj = Player(x,y,r,v)
-      obj@GameObject(x,y,r,v);
-      if nargin > 0 % support no input arg
-        obj.points = 0;
-        obj.missed = 0;
+      args = {};
+      if nargin > 0 % only use args if nargin > 0
+        args = {x,y,r,v};
       end
+      obj = obj@GameObject(args{:});
+      obj.points = 0;
+      obj.missed = 0;
     end
 
     % -------------------- ACCESS METHODS --------------------
     % get obj points position
     function value = get.points(obj)
       value = obj.points;
+
     end
     % get obj points position
     function value = get.missed(obj)
@@ -37,13 +40,14 @@ classdef Player < GameObject
       obj.missed = msd;
     end
 
+
     % -------------------- FUNCTIONAL METHODS --------------------
-    function addPoint(obj)
-      obj.points = obj.points + 1;
-    end
-    function addMissed(obj)
-      obj.missed = obj.missed + 1;
-    end
+    %function addPoint(obj)
+    %  obj.points = obj.points + 1;
+    %end
+    %function addMissed(obj)
+    %  obj.missed = obj.missed + 1;
+    %end
   end
 
 end
